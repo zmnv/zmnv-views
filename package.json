@@ -1,0 +1,11 @@
+{
+  "name": "zmnv-views-generator",
+  "version": "1.0.0",
+  "description": "Сканирует директорию и генерирует HTML-файл с отображением картинок внутри папок",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valeriy Zimnev",
+  "license": "ISC"
+}
