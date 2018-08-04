@@ -1,10 +1,11 @@
 {
   "name": "zmnv-views-generator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Сканирует директорию и генерирует HTML-файл с отображением картинок внутри папок",
   "main": "app.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build",
     "clean": "gulp clean"
   },
   "author": "Valeriy Zimnev",

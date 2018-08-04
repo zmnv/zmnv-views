@@ -32,7 +32,7 @@ gulp.task('clean', function (cb) {
 })
 
 gulp.task('run', function (cb) {
-    exec('node app.js', function (err, stdout, stderr) {
+    exec('nodemon app.js', function (err, stdout, stderr) {
       // console.log(stderr);
       cb(err);
     });
@@ -45,5 +45,7 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('./app.js', browserSync.reload);
 });
 
-gulp.task('default', ['build', 'watch']);
-gulp.task('build', ['run', 'sass']);
+gulp.task('default', ['dev', 'watch']);
+gulp.task('dev', ['run', 'sass']);
+
+gulp.task('build', ['sass']);
