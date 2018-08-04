@@ -1,6 +1,6 @@
 {
   "name": "zmnv-views-generator",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Сканирует директорию и генерирует HTML-файл с отображением картинок внутри папок",
   "main": "app.js",
   "scripts": {
