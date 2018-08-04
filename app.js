@@ -33,7 +33,10 @@ function doTemplate(inputArray) {
   return template;
 }
 
-// console.log(doTemplate(tree['children']));
+const isBuildFolderExist = fs.existsSync(PATH.join(__dirname, '/build'));
+if (!isBuildFolderExist) {
+  fs.mkdirSync('build');
+}
 
 const stream = fs.createWriteStream('build/rendered.html');
 stream.once('open', function(fd) {
@@ -54,4 +57,3 @@ stream.once('open', function(fd) {
 });
 
 copydir.sync('images', 'build/images');
-// console.log(tree);
