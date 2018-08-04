@@ -9,6 +9,7 @@
   "author": "Valeriy Zimnev",
   "license": "ISC",
   "dependencies": {
+    "copy-dir": "^0.4.0",
     "directory-tree": "^2.1.0"
   },
   "devDependencies": {
