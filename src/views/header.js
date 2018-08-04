@@ -1,3 +1,5 @@
+const currentDate = require('../js-helpers/currentDate');
+
 function ViewsHeader(title, css) {
     return `
 <!DOCTYPE html>
@@ -8,9 +10,10 @@ function ViewsHeader(title, css) {
         <link href="${css}" rel="stylesheet" />
     </head>
     <body>
-        <div class="container-width-min pad-t-64 mar-b-48">
+        <div class="vg-header container-width-max pad-t-64 mar-b-48">
+            <div class="vg-header__dateModify">${currentDate()}</div>
             <h1 class="vg-header__title">${title}</h1>
-            <div class="vg-header__dateModify">24 янв 2019 в 24:21</div>
+            <div class="vg-header__dateModify">↓</div>
         </div>
 `;
 }

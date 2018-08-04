@@ -23,18 +23,18 @@ if (!isBuildFolderExist) {
 
 const stream = fs.createWriteStream('build/index.html');
 stream.once('open', function(fd) {
-
   const imagesList = tree['children'].sort(function(a, b) {
-    const keyA = new Date(b.type),
-          keyB = new Date(a.type);
-    // Compare the 2 dates
-    if (keyA < keyB) return -1;
-    if (keyA > keyB) return 1;
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
     return 0;
   });
 
   stream.write(ViewsHeader(tree['name'], 'style.css'));
-  stream.write(ViewsContainer(Template(imagesList)));
+  stream.write(
+    '<div class="vg-container container-width-max"><div class="row">',
+  );
+  stream.write(Template(imagesList));
+  stream.write('</div></div>');
   stream.write(ViewsFooter);
   stream.end();
 });

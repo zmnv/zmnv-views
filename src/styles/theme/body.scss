@@ -1,3 +1,7 @@
+body {
+    margin-bottom: 128px;
+}
+
 .vg-imageCard {
     display: block;
 }
@@ -26,7 +30,12 @@
     }
 }
 
+.vg-header {
+    text-align: center;
+}
+
 .vg-header__dateModify {
     font-size: 13px;
     opacity: .54;
+    -webkit-font-smoothing: antialiased;
 }

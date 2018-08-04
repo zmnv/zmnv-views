@@ -42,6 +42,7 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('./src/**/*.js', ['run']);
     gulp.watch('./src/**/*.scss', ['sass']);
     gulp.watch('./build/**/*.*', browserSync.reload);
+    gulp.watch('./app.js', browserSync.reload);
 });
 
 gulp.task('default', ['build', 'watch']);
