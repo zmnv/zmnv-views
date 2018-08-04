@@ -3,8 +3,10 @@ const dirTree = require('directory-tree');
 const fs = require('fs');
 const copydir = require('copy-dir');
 
-const LayoutHeader = require('./src/header');
-const LayoutFooter = require('./src/footer');
+const ViewsHeader = require('./src/views/header');
+const ViewsContainer = require('./src/views/container');
+const ViewsFooter = require('./src/views/footer');
+const Template = require('./src/views/index');
 
 const tree = dirTree(
   './images',
@@ -14,31 +16,12 @@ const tree = dirTree(
   },
 );
 
-let template = '';
-
-function doTemplate(inputArray) {
-  
-  inputArray.forEach(element => {
-    if (element['type'] !== 'directory') {
-      template += `<img src="${element['path']}" width="100" />\n`;
-    } else {
-      // console.log('DIRECTORY ' + element['name']);
-      template += `<div class="inside">\n`;
-      template += `<h2>${element['name']}</h2>\n`;
-      doTemplate(element['children']);
-      template += `</div>\n`;
-    }
-  });
-
-  return template;
-}
-
 const isBuildFolderExist = fs.existsSync(PATH.join(__dirname, '/build'));
 if (!isBuildFolderExist) {
   fs.mkdirSync('build');
 }
 
-const stream = fs.createWriteStream('build/rendered.html');
+const stream = fs.createWriteStream('build/index.html');
 stream.once('open', function(fd) {
 
   const imagesList = tree['children'].sort(function(a, b) {
@@ -50,9 +33,9 @@ stream.once('open', function(fd) {
     return 0;
   });
 
-  stream.write(LayoutHeader('Первый раз', 'lolka'));
-  stream.write(doTemplate(imagesList));
-  stream.write(LayoutFooter());
+  stream.write(ViewsHeader(tree['name'], 'style.css'));
+  stream.write(ViewsContainer(Template(imagesList)));
+  stream.write(ViewsFooter);
   stream.end();
 });
 

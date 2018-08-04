@@ -1,3 +1,5 @@
+function ViewsHeader(title, css) {
+    return `
 <!DOCTYPE html>
 <html lang="ru" >
     <head>
@@ -6,3 +8,10 @@
         <link href="${css}" rel="stylesheet" />
     </head>
     <body>
+        <div class="container-width-min">
+            <h1>${title}</h1>
+        </div>
+`;
+}
+
+module.exports = ViewsHeader;

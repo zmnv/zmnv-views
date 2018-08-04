@@ -1,3 +1,13 @@
+@import '../../node_modules/zmnv-style-defaults/src/defaults';
+
 body {
-    background: red;
+
+}
+
+.vg-imageCard {
+    padding: 24px;
+}
+
+.vg-imageCard img {
+    max-width: 100%;
 }
