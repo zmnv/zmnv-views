@@ -1,5 +1,5 @@
 const ViewsContainer = input => `
-    <main class="container-width-middle">
+    <main class="container-width-max">
             ${input}
     </main>
 `;

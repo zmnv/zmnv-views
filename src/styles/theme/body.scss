@@ -1,0 +1,32 @@
+.vg-imageCard {
+    display: block;
+}
+
+.vg-imageCard__filename {
+}
+
+.vg-imageCard__link {
+    margin: 0 auto;
+}
+
+.vg-imageCard__image {
+    max-width: 100%;
+    max-height: 300px;
+    padding: 4px;
+
+    border: 1px solid rgba(0,0,0,.05);
+
+    &:hover {
+        border-color: transparent;
+        box-shadow: 0 0 0 2px #009dff;
+    }
+    &:active {
+        border-color: transparent;
+        box-shadow: 0 0 0 4px #ff5a68;
+    }
+}
+
+.vg-header__dateModify {
+    font-size: 13px;
+    opacity: .54;
+}

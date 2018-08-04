@@ -5,9 +5,9 @@ function ImageCard(pathName) {
     const fileName = pathName.split('/');
 
     return `
-        <div class="col-12 col-sm-4 col-md-3">
+        <div class="col-12 col-sm-4 col-lg-3 mar-b-48">
             <div class="vg-imageCard">
-                <div class="vg-imageCard__filename">${fileName[fileName.length-1]}</div>
+                <div class="vg-imageCard__filename mar-b-8">${fileName[fileName.length-1]}</div>
                 ${aTag(imgTag)}
             </div>
         </div>\n
@@ -21,7 +21,7 @@ let template = '';
 
 function Template(inputArray) {
 
-  template += '<div class="vg-container container-width-max"><div class="row">';
+  template += '<div class="vg-container"><div class="row">';
   
   inputArray.forEach(element => {
     if (element['type'] !== 'directory') {
@@ -29,7 +29,7 @@ function Template(inputArray) {
     } else {
       // console.log('DIRECTORY ' + element['name']);
       template += `<div class="row vg-container__inside">\n`;
-      template += `<div class="col-12"><h2>${element['name']}</h2><div>\n`;
+      template += `<div class="col-12"><h2 class="mar-b-32">${element['name']}</h2><div>\n`;
       Template(element['children']);
       template += `</div>\n`;
     }

@@ -1,13 +1,2 @@
 @import '../../node_modules/zmnv-style-defaults/src/defaults';
-
-body {
-
-}
-
-.vg-imageCard {
-    padding: 24px;
-}
-
-.vg-imageCard img {
-    max-width: 100%;
-}
+@import './theme/enter';
