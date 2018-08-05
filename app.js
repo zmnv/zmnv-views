@@ -3,9 +3,9 @@ const fs = require('fs');
 const copydir = require('copy-dir');
 
 const createDirectory = require('./src/js-helpers/createDirectory');
+const getTitleByUserInput = require('./src/js-helpers/getTitleByUserInput');
 
 const ViewsHeader = require('./src/views/header');
-const ViewsContainer = require('./src/views/container');
 const ViewsFooter = require('./src/views/footer');
 const Template = require('./src/views/index');
 
@@ -17,6 +17,7 @@ const tree = dirTree(
   },
 );
 
+
 createDirectory();
 
 const stream = fs.createWriteStream('build/index.html');
@@ -27,7 +28,7 @@ stream.once('open', function(fd) {
     return 0;
   });
 
-  stream.write(ViewsHeader(tree['name'], 'style.css'));
+  stream.write(ViewsHeader('', 'style.css'));
   stream.write(
     '<div class="vg-container container-width-max"><div class="row">',
   );
