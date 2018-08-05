@@ -31,21 +31,28 @@ gulp.task('clean', function (cb) {
   });
 })
 
-gulp.task('run', function (cb) {
+gulp.task('nodemon', function (cb) {
     exec('nodemon app.js', function (err, stdout, stderr) {
       // console.log(stderr);
       cb(err);
     });
   })
 
+gulp.task('node', function (cb) {
+    exec('node app.js', function (err, stdout, stderr) {
+      // console.log(stderr);
+      cb(err);
+    });
+  })
+
 gulp.task('watch', ['browser-sync'], function () {
-    gulp.watch('./src/**/*.js', ['run']);
+    gulp.watch('./src/**/*.js', ['nodemon']);
     gulp.watch('./src/**/*.scss', ['sass']);
     gulp.watch('./build/**/*.*', browserSync.reload);
     gulp.watch('./app.js', browserSync.reload);
 });
 
 gulp.task('default', ['dev', 'watch']);
-gulp.task('dev', ['run', 'sass']);
+gulp.task('dev', ['nodemon', 'sass']);
 
-gulp.task('build', ['sass']);
+gulp.task('build', ['node', 'sass']);
