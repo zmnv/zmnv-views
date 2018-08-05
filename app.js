@@ -3,7 +3,6 @@ const fs = require('fs');
 const copydir = require('copy-dir');
 
 const createDirectory = require('./src/js-helpers/createDirectory');
-const getTitleByUserInput = require('./src/js-helpers/getTitleByUserInput');
 
 const ViewsHeader = require('./src/views/header');
 const ViewsFooter = require('./src/views/footer');
