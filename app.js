@@ -1,7 +1,8 @@
-const PATH = require('path');
 const dirTree = require('directory-tree');
 const fs = require('fs');
 const copydir = require('copy-dir');
+
+const createDirectory = require('./src/js-helpers/createDirectory');
 
 const ViewsHeader = require('./src/views/header');
 const ViewsContainer = require('./src/views/container');
@@ -11,15 +12,12 @@ const Template = require('./src/views/index');
 const tree = dirTree(
   './images',
   { extensions: /\.(jpeg|jpg|png|svg|gif)$/ },
-  (item, PATH) => {
+  (item, path) => {
     // console.log(item);
   },
 );
 
-const isBuildFolderExist = fs.existsSync(PATH.join(__dirname, '/build'));
-if (!isBuildFolderExist) {
-  fs.mkdirSync('build');
-}
+createDirectory();
 
 const stream = fs.createWriteStream('build/index.html');
 stream.once('open', function(fd) {

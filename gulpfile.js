@@ -38,7 +38,7 @@ gulp.task('nodemon', function (cb) {
     });
   })
 
-gulp.task('node', function (cb) {
+gulp.task('nodeapp', function (cb) {
     exec('node app.js', function (err, stdout, stderr) {
       // console.log(stderr);
       cb(err);
@@ -52,7 +52,7 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('./app.js', browserSync.reload);
 });
 
-gulp.task('default', ['dev', 'watch']);
 gulp.task('dev', ['nodemon', 'sass']);
+gulp.task('build', ['nodeapp', 'sass']);
 
-gulp.task('build', ['node', 'sass']);
+gulp.task('default', ['dev', 'watch']);
