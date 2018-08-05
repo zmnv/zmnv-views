@@ -1,6 +1,6 @@
 function ImageCard(pathName) {
     const imgTag = `<img src="${pathName}" class="vg-imageCard__image" />\n`;
-    const aTag = innerElement => `<a href="${pathName}" class="vg-imageCard__link" target="_blank">${innerElement}</a>`;
+    const aTag = innerElement => `<a href="${pathName}" class="vg-imageCard__link">${innerElement}</a>`;
 
     const fileName = pathName.split('/');
 
