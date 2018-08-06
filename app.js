@@ -22,14 +22,14 @@ createDirectory();
 
 const stream = fs.createWriteStream('build/index.html');
 stream.once('open', function(fd) {
-  console.log('before:', tree['children']);
+  // console.log('before:', tree['children']);
   const imagesList = tree['children'].sort(function(a, b) {
     if (a.type < b.type) return 1;
     if (a.type > b.type) return -1;
     return 0;
   });
 
-  console.log('after:', imagesList);
+  // console.log('after:', imagesList);
 
   stream.write(ViewsHeader('', 'style.css'));
   stream.write(
