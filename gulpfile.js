@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const exec = require('child_process').exec;
 const browserSync = require('browser-sync');
+const clean = require('gulp-clean');
 
 gulp.task('browser-sync', function() {
     var port = process.env.PORT || 3000;
@@ -24,13 +25,6 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('clean', function (cb) {
-  exec('rm -rf ./build', function (err, stdout, stderr) {
-    // console.log(stderr);
-    cb(err);
-  });
-})
-
 gulp.task('nodemon', function (cb) {
     exec('nodemon app.js', function (err, stdout, stderr) {
       // console.log(stderr);
@@ -44,6 +38,18 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('./build/**/*.*', browserSync.reload);
     gulp.watch('./app.js', browserSync.reload);
 });
+
+gulp.task('clean:images', function () {
+  return gulp.src('./images/**/*', {read: false})
+      .pipe(clean());
+});
+
+gulp.task('clean:build', function () {
+  return gulp.src('./build', {read: false})
+      .pipe(clean());
+});
+
+gulp.task('clean', ['clean:images', 'clean:build']);
 
 gulp.task('dev', ['nodemon', 'sass']);
 
