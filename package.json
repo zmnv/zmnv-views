@@ -1,7 +1,7 @@
 {
-  "name": "img-presents",
+  "name": "zmnv-gg",
   "version": "1.4.0",
-  "description": "Сканирует директорию и генерирует HTML-файл с отображением картинок внутри папок",
+  "description": "Gallery preview generator. Convert file structure with images to simple HTML page with thumbnails.",
   "main": "app.js",
   "scripts": {
     "start": "node ./src/console-menu/menu.js",
