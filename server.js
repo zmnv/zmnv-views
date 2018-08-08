@@ -10,6 +10,7 @@ app.listen(address.port, address.ip, function() {
 ┌─────────────────────────────────────────────┐
 │ \x1b[95mRunning Server \x1b[90m* \x1b[94mhttp://${address.ip}:${address.port}\x1b[90m  │
 └─────────────────────────────────────────────┘
+Press CTRL+C to exit...
     \x1b[0m`);
     opn(`http://${address.ip}:${address.port}`);
 });

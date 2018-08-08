@@ -16,8 +16,6 @@ const tree = dirTree(
   },
 );
 
-
-
 createDirectory();
 
 const stream = fs.createWriteStream('build/index.html');
@@ -38,6 +36,11 @@ stream.once('open', function(fd) {
   stream.write(Template(imagesList));
   stream.write('</div></div>');
   stream.write(ViewsFooter);
+
+  if (process.env.TYPETEST && process.env.TYPETEST === 'AB') {
+    stream.write('<h2>This is AB!!</h2>');
+  }
+
   stream.end();
 });
 

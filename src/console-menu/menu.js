@@ -8,8 +8,9 @@ menu([
     { hotkey: '1', title: 'npm run dev      Developer Mode' },
     { hotkey: '2', title: 'npm run build    Just build gallery' },
     { hotkey: '3', title: 'npm run prod     Presentation', selected: true },
+    { hotkey: '4', title: 'npm run prod:ab  A/B Votes' },
     { separator: true },
-    { hotkey: '4', title: 'Cleaner...', cascade: true },
+    { hotkey: '4', title: 'Clean...', cascade: true },
     { hotkey: '?', title: 'Help' },
 ], {
     border: true,
@@ -31,6 +32,7 @@ menu([
         if(item.hotkey === '1') execDevelopment();
         if(item.hotkey === '2') execBuild();
         if(item.hotkey === '3') execProduction();
+        if(item.hotkey === '4') execProduction(true);
         if(item.hotkey === 'a') execCleanAll();
         if(item.hotkey === 'b') execCleanBuild();
         if(item.hotkey === 'c') execCleanImages();
@@ -39,8 +41,9 @@ menu([
     }
 });
 
-function execProduction() {
-    const doProduction = exec('npm run prod');
+function execProduction(isABTesting = false) {
+    const commands = ['npm run prod', 'cross-env TYPETEST=AB npm run prod'];
+    const doProduction = isABTesting ? exec(commands[1]) : exec(commands[0]);
 
     doProduction.stdout.on('data', function(data) {
         console.log(data); 

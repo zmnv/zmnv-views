@@ -7,7 +7,7 @@ const browserSync = require('browser-sync');
 const clean = require('gulp-clean');
 
 gulp.task('browser-sync', function() {
-    var port = process.env.PORT || 3000;
+    // var port = process.env.PORT || 3000;
     browserSync.init({
       // see http://www.browsersync.io/docs/options/
       server: {
