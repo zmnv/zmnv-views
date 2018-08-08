@@ -4,7 +4,11 @@
 
 It «converts» file structure with images to simple HTML page with styles.
 
-[![Watch the video](src/readme-images/video-preview.png)](https://youtu.be/wbgKVq7C7qw)
+<a href="https://youtu.be/wbgKVq7C7qw" target="_blank">
+   <img src="src/readme-images/video-preview.png" />
+</a>
+
+<a href="https://youtu.be/wbgKVq7C7qw" target="_blank">Watch on YouTube →</a>
 
 
 ## How to use
