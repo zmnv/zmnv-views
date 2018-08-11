@@ -12,7 +12,7 @@ function ViewsHeader(title, css) {
     </head>
     <body>
         <div class="vg-header container-width-max pad-t-64 mar-b-48">
-            <div class="vg-header__dateModify">${currentDate(true)}</div>
+            <div id="target" class="vg-header__dateModify">${currentDate(true)}</div>
             <h1 class="vg-header__title">${title}</h1>
             <div class="vg-header__dateModify">↓</div>
         </div>

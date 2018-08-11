@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src/console-menu/menu.js",
     "dev": "gulp",
+    "dev:ab": "cross-env TYPETEST=AB npm run dev",
     "build": "node app.js && gulp sass",
     "server": "node server.js",
     "prod": "npm run build && npm run server",

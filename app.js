@@ -6,6 +6,7 @@ const createDirectory = require('./src/js-helpers/createDirectory');
 
 const ViewsHeader = require('./src/views/header');
 const ViewsFooter = require('./src/views/footer');
+const ViewsPolls = require('./src/views/polls');
 const Template = require('./src/views/index');
 
 const tree = dirTree(
@@ -38,7 +39,7 @@ stream.once('open', function(fd) {
   stream.write(ViewsFooter);
 
   if (process.env.TYPETEST && process.env.TYPETEST === 'AB') {
-    stream.write('<h2>This is AB!!</h2>');
+    stream.write(ViewsPolls());
   }
 
   stream.end();
