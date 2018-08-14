@@ -1,3 +1,5 @@
+@import './vars';
+
 body {
     margin-bottom: 128px;
 }
@@ -6,11 +8,43 @@ body {
     display: block;
 }
 
-.vg-imageCard__filename {
+.vg-imageCard__title, .vg-imageCard__title__circle, .vg-imageCard__title__filename {
+    display: inline-block;
+}
+
+.vg-imageCard__title {
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover .vg-imageCard__title__circle {
+        box-shadow: 0 0 0 1px #07cc06;
+    }
+    &:hover .vg-imageCard__title__filename {
+        color: #03c126;
+    }
+}
+
+input[type=checkbox].vg-imageCard__title__circle
+{
+    font-size: 99px;
+    transform: scale(1.5);
+}
+
+.vg-imageCard__title_active {
+    & .vg-imageCard__title__circle {
+        box-shadow: 0 0 0 2px #03c126;
+        background: #03c126;
+    }
+
+    & .vg-imageCard__title__filename {
+        color: #03c126;
+        font-weight: 500;
+    }
 }
 
 .vg-imageCard__link {
     margin: 0 auto;
+    display: block;
 }
 
 .vg-imageCard__image {

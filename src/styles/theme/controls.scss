@@ -1,0 +1,68 @@
+
+        .control {
+            font-family: arial;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 6px;
+            padding-top: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+            .control input {
+                position: absolute;
+                z-index: -1;
+                opacity: 0;
+            }
+        .control_indicator {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            height: 24px;
+            width: 24px;
+            border: 1px inset rgba(0,0,0,0.16);
+            border-radius: 4px;
+        }
+        .control-radio .control_indicator {
+            border-radius: 3px;
+        }
+        
+        .control:hover input ~ .control_indicator,
+        .control input:focus ~ .control_indicator {
+            background: #d1ffb8;
+        }
+        
+        .control input:checked ~ .control_indicator {
+            background: #64cf00;
+        }
+        .control:hover input:not([disabled]):checked ~ .control_indicator,
+        .control input:checked:focus ~ .control_indicator {
+            box-shadow: 0 0 0 4px #d1ffb8;
+        }
+        .control input:disabled ~ .control_indicator {
+            background: #e2e2e2;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .control_indicator:after {
+            box-sizing: unset;
+            content: '';
+            position: absolute;
+            display: none;
+        }
+        .control input:checked ~ .control_indicator:after {
+            display: block;
+        }
+        .control-checkbox .control_indicator:after {
+            left: 7px;
+            top: 2px;
+            width: 7px;
+            height: 13px;
+            border: solid #ffffff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .control-checkbox input:disabled ~ .control_indicator:after {
+            border-color: #a1a1a1;
+        }
+    
