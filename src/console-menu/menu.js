@@ -10,7 +10,7 @@ menu([
     { hotkey: '3', title: 'npm run prod     Presentation', selected: true },
     { hotkey: '4', title: 'npm run prod:ab  A/B Votes' },
     { separator: true },
-    { hotkey: '4', title: 'Clean...', cascade: true },
+    { hotkey: '5', title: 'Clean...', cascade: true },
     { hotkey: '?', title: 'Help' },
 ], {
     border: true,

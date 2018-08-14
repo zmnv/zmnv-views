@@ -8,6 +8,12 @@ body {
     display: block;
 }
 
+.vg-imageCard_active {
+    background: #ddffbe;
+    box-shadow: 0 0 0 8px #ddffbe;
+    border-radius: 1px;
+}
+
 .vg-imageCard__title, .vg-imageCard__title__circle, .vg-imageCard__title__filename {
     display: inline-block;
 }
@@ -45,6 +51,12 @@ input[type=checkbox].vg-imageCard__title__circle
 .vg-imageCard__link {
     margin: 0 auto;
     display: block;
+    outline: none;
+
+    &:focus > .vg-imageCard__image {
+        border-color: transparent;
+        box-shadow: 0 0 0 2px #009dff;
+    }
 }
 
 .vg-imageCard__image {
@@ -53,6 +65,7 @@ input[type=checkbox].vg-imageCard__title__circle
     padding: 4px;
 
     border: 1px solid rgba(0,0,0,.05);
+    outline: none;
 
     &:hover {
         border-color: transparent;

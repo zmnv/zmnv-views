@@ -3,11 +3,12 @@ function ImageCard(pathName) {
     const aTag = innerElement => `<a href="${pathName}" class="vg-imageCard__link">${innerElement}</a>`;
 
     const fileName = pathName.split('/');
-    const tempId = fileName[fileName.length-1];
+    // const tempId = fileName[fileName.length-1];
+    const tempId = Math.random().toString(32).substr(2);
 
     return `
         <div class="col-12 col-sm-4 col-lg-3 mar-b-48">
-            <div class="vg-imageCard">
+            <div class="vg-imageCard" data-tempid="${tempId}">
 
 
               <label class="control control-checkbox">

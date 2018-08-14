@@ -25,6 +25,7 @@ function ViewsPolls() {
         currentParams.forEach(elem => {
             params.push(elem);
             $("input[data-tempid='"+elem+"']").attr('checked', true);
+            $(".vg-imageCard[data-tempid='"+elem+"']").addClass('vg-imageCard_active');
         })
         console.log('init params:', params);
     }
@@ -41,6 +42,7 @@ function ViewsPolls() {
         if(params.includes(id)) {
             params = params.filter(element => element !== id);
             updateQueryStringParam('?answers='+params.join('&'));
+            $(".vg-imageCard[data-tempid='"+id+"']").removeClass('vg-imageCard_active');
         } else {
             console.log('naahh');
         }
@@ -50,9 +52,16 @@ function ViewsPolls() {
         if(!params.includes(id)) {
             params.push(id);
             updateQueryStringParam('?answers='+params.join('&'));
+            $(".vg-imageCard[data-tempid='"+id+"']").addClass('vg-imageCard_active');
         } else {
             console.log('naahh');
         }
+    }
+
+    function clearAll() {
+        // $(".control-checkbox > input").attr('checked', false);
+        // updateQueryStringParam('');
+        window.location.href = '/';
     }
 
 
@@ -63,10 +72,8 @@ function ViewsPolls() {
         }
         else {
             removePram(answers);
-            // $(this).attr('value', 'false');
-            // updateQueryStringParam('answers', '');
-            // console.log(answers);
-        }});
+        }
+    });
 
     </script>
     `;

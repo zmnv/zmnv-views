@@ -3,7 +3,7 @@
             font-family: arial;
             display: block;
             position: relative;
-            padding-left: 30px;
+            padding-left: 26px;
             margin-bottom: 6px;
             padding-top: 3px;
             cursor: pointer;
@@ -16,10 +16,10 @@
             }
         .control_indicator {
             position: absolute;
-            top: 0px;
+            top: 4px;
             left: 0;
-            height: 24px;
-            width: 24px;
+            height: 20px;
+            width: 20px;
             border: 1px inset rgba(0,0,0,0.16);
             border-radius: 4px;
         }
@@ -31,9 +31,15 @@
         .control input:focus ~ .control_indicator {
             background: #d1ffb8;
         }
+
+        .control:hover,
+        .control:focus {
+            color: #64cf00;
+        }
         
         .control input:checked ~ .control_indicator {
             background: #64cf00;
+            border-color: transparent;
         }
         .control:hover input:not([disabled]):checked ~ .control_indicator,
         .control input:checked:focus ~ .control_indicator {
@@ -54,10 +60,10 @@
             display: block;
         }
         .control-checkbox .control_indicator:after {
-            left: 7px;
+            left: 6px;
             top: 2px;
-            width: 7px;
-            height: 13px;
+            width: 4px;
+            height: 10px;
             border: solid #ffffff;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);

@@ -1,0 +1,22 @@
+.vg-button {
+    padding: 4px 8px;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,.16);
+    border-radius: 4px;
+    color: rgba(0,0,0,.65);
+    outline: none;
+
+    cursor: pointer;
+
+    &:hover {
+        color: #009dff;
+    }
+}
+
+.vg-button_danger {
+    &:hover {
+        border-color: #ff5a68;
+        color: #ff5a68;
+    }
+}
+

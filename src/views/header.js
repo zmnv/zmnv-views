@@ -16,6 +16,9 @@ function ViewsHeader(title, css) {
             <h1 class="vg-header__title">${title}</h1>
             <div class="vg-header__dateModify">↓</div>
         </div>
+        <div class="container-width-max text-align-right">
+            <button class="vg-button vg-button_danger" onClick="clearAll()">Сбросить выбор</button>
+        </div>
 `;
 }
 
