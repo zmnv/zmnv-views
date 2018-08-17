@@ -21,8 +21,8 @@ function currentDate(timeFirst) {
        'декабря',
     ];
 
-    if (timeFirst) return `${addZero(today.getHours())}:${addZero(today.getMinutes())}, ${today.getDate()} ${monthsList[today.getMonth()-1]} ${today.getFullYear()}`;
-    else return `${today.getDate()} ${monthsList[today.getMonth()-1]} ${today.getFullYear()} в ${today.getHours()}:${today.getMinutes()}`;
+    if (timeFirst) return `${addZero(today.getHours())}:${addZero(today.getMinutes())}, ${today.getDate()} ${monthsList[today.getMonth()]} ${today.getFullYear()}`;
+    else return `${today.getDate()} ${monthsList[today.getMonth()]} ${today.getFullYear()} в ${today.getHours()}:${today.getMinutes()}`;
 }
 
 module.exports = currentDate;

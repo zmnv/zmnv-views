@@ -7,8 +7,8 @@ console.log(titleHeader);
 menu([
     { hotkey: '1', title: 'npm run dev      Developer Mode' },
     { hotkey: '2', title: 'npm run build    Just build gallery' },
-    { hotkey: '3', title: 'npm run prod     Presentation', selected: true },
-    { hotkey: '4', title: 'npm run prod:ab  A/B Votes' },
+    { hotkey: '3', title: 'npm run prod     Production gallery', selected: true },
+    { hotkey: '4', title: 'npm run prod:clear  Just Images' },
     { separator: true },
     { hotkey: '5', title: 'Clean...', cascade: true },
     { hotkey: '?', title: 'Help' },
