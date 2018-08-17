@@ -2,7 +2,7 @@ const currentDate = require('../js-helpers/currentDate');
 
 const buttonsMenu = () => {
     const view = `
-        <div class="container-width-max text-align-right">
+        <div class="vg-toolbar">
             <button class="vg-button vg-button__copy-to-clipboard" data-clipboard-text="Вы пытались скопировать, но не вышло...">Скопировать ссылку</button>
             <button class="vg-button vg-button_danger" onClick="clearAll()">Сбросить выбор</button>
         </div>
@@ -21,12 +21,12 @@ function ViewsHeader(title, css) {
         <link href="${css}" rel="stylesheet" />
     </head>
     <body>
+        ${buttonsMenu()}
         <div class="vg-header container-width-max pad-t-64 mar-b-48">
             <div id="target" class="vg-header__dateModify">${currentDate(true)}</div>
             <h1 class="vg-header__title">${title}</h1>
             <div class="vg-header__dateModify">↓</div>
         </div>
-    ${buttonsMenu()}
 `;
 }
 

@@ -4,6 +4,15 @@ body {
     margin-bottom: 128px;
 }
 
+.vg-toolbar {
+    top: 8px;
+    right: 6px;
+    position: fixed;
+    z-index: 100;
+    background: #fff;
+    border-radius: 3px;
+}
+
 .vg-imageCard {
     display: block;
 }
