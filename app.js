@@ -38,9 +38,9 @@ stream.once('open', function(fd) {
   stream.write('</div></div>');
   stream.write(ViewsFooter);
 
-  if (process.env.TYPETEST && process.env.TYPETEST === 'AB') {
-    stream.write(ViewsPolls());
-  }
+  if (process.env.LAYOUT && process.env.LAYOUT === 'CLEAR') {
+    // do nothing
+  } else stream.write(ViewsPolls());
 
   stream.end();
 });

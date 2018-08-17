@@ -52,6 +52,7 @@ input[type=checkbox].vg-imageCard__title__circle
     margin: 0 auto;
     display: block;
     outline: none;
+    text-align: center;
 
     &:focus > .vg-imageCard__image {
         border-color: transparent;

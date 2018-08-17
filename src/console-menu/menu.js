@@ -41,9 +41,9 @@ menu([
     }
 });
 
-function execProduction(isABTesting = false) {
-    const commands = ['npm run prod', 'cross-env TYPETEST=AB npm run prod'];
-    const doProduction = isABTesting ? exec(commands[1]) : exec(commands[0]);
+function execProduction(isClear = false) {
+    const commands = ['npm run prod', 'cross-env LAYOUT=CLEAR npm run prod'];
+    const doProduction = isClear ? exec(commands[0]) : exec(commands[1]);
 
     doProduction.stdout.on('data', function(data) {
         console.log(data); 
