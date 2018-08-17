@@ -30,7 +30,7 @@ stream.once('open', function(fd) {
 
   // console.log('after:', imagesList);
 
-  stream.write(ViewsHeader('', 'style.css'));
+  stream.write(ViewsHeader(process.env.title ? process.env.title : '', 'style.css'));
   stream.write(
     '<div class="vg-container container-width-max"><div class="row">',
   );

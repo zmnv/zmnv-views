@@ -64,7 +64,7 @@ input[type=checkbox].vg-imageCard__title__circle
     max-width: 100%;
     max-height: 300px;
     padding: 4px;
-
+    background: #fff;
     border: 1px solid rgba(0,0,0,.05);
     outline: none;
 
@@ -83,8 +83,8 @@ input[type=checkbox].vg-imageCard__title__circle
 }
 
 .vg-header__title {
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 34px;
+    font-weight: 600;
 }
 
 .vg-header__dateModify {
