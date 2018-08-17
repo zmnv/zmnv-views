@@ -10,6 +10,7 @@
 
     &:hover {
         color: #009dff;
+        border-color: #009dff;
     }
 }
 
@@ -20,3 +21,21 @@
     }
 }
 
+.vg-button_danger {
+    &:hover {
+        border-color: #ff5a68;
+        color: #ff5a68;
+    }
+}
+
+
+.vg-button__copy-to-clipboard_copied {
+    &:before {
+        content: "ОК!";
+        position: absolute;
+        margin-top: 25px;
+        margin-left: 61px;
+        font-size: 11px;
+        color: #4CAF50;
+    }
+}

@@ -17,6 +17,7 @@ function ViewsHeader(title, css) {
             <div class="vg-header__dateModify">↓</div>
         </div>
         <div class="container-width-max text-align-right">
+            <button class="vg-button vg-button__copy-to-clipboard" data-clipboard-text="Вы пытались скопировать, но не вышло...">Скопировать ссылку</button>
             <button class="vg-button vg-button_danger" onClick="clearAll()">Сбросить выбор</button>
         </div>
 `;

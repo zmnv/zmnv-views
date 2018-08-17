@@ -1,9 +1,20 @@
 function ViewsPolls() {
     return `
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    
     <script>
+    new ClipboardJS('.vg-button__copy-to-clipboard');
 
+    $('.vg-button__copy-to-clipboard').attr('data-clipboard-text', window.location.href);
+    $('.vg-button__copy-to-clipboard').click(function() {
+        $(this).addClass('vg-button__copy-to-clipboard_copied');
+        setTimeout(() => {
+            $(this).removeClass('vg-button__copy-to-clipboard_copied');
+        }, 1000);
+    });
 
+    window.location.href
     function getSearchParams(k){
         var p={};
         location.search.replace(/[?&]+([^=&]+)=([^]*)/gi,function(s,k,v){p[k]=v})
