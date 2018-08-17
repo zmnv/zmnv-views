@@ -6,8 +6,8 @@ function ViewsPolls() {
     <script>
     new ClipboardJS('.vg-button__copy-to-clipboard');
 
-    $('.vg-button__copy-to-clipboard').attr('data-clipboard-text', window.location.href);
     $('.vg-button__copy-to-clipboard').click(function() {
+        $(this).attr('data-clipboard-text', window.location.href);
         $(this).addClass('vg-button__copy-to-clipboard_copied');
         setTimeout(() => {
             $(this).removeClass('vg-button__copy-to-clipboard_copied');
