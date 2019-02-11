@@ -1,8 +1,12 @@
 {
   "name": "zmnv-gg",
-  "version": "1.4.5",
+  "version": "1.4.8",
   "description": "Gallery preview generator. Converts file structure with images to simple HTML page with thumbnails.",
+  "preferGlobal": true,
   "main": "app.js",
+  "bin": {
+    "zmnv-views": "./commands.js"
+  },
   "scripts": {
     "start": "node ./src/console-menu/menu.js",
     "dev": "gulp",
@@ -16,6 +20,8 @@
   "author": "Valeriy Zimnev",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
     "copy-dir": "^0.4.0",
     "directory-tree": "^2.2.1",
     "express": "^4.16.4",
@@ -24,7 +30,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
-    "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",

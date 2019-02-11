@@ -14,6 +14,8 @@ const tree = dirTree(
   },
 );
 
+function Main() {
+
 createDirectories();
 
 const stream = fs.createWriteStream('build/index.html');
@@ -43,3 +45,9 @@ stream.once('open', function(fd) {
 });
 
 copydir.sync('images', 'build/images');
+
+}
+
+// Main();
+
+module.exports = Main();
