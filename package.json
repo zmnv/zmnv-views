@@ -8,7 +8,7 @@
     "dev": "gulp",
     "dev:clear": "cross-env LAYOUT=CLEAR npm run dev",
     "build": "node app.js && gulp sass",
-    "server": "node server.js",
+    "serve": "node server.js",
     "prod": "npm run build && npm run server",
     "prod:clear": "cross-env LAYOUT=CLEAR npm run prod",
     "clean": "gulp clean"
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.24.6",
+    "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
