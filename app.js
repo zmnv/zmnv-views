@@ -1,7 +1,6 @@
 const dirTree = require('directory-tree');
 const fs = require('fs');
 const copydir = require('copy-dir');
-const clear = require('clear');
 
 const createDirectories = require('./src/js-helpers/createDirectories');
 
@@ -10,9 +9,12 @@ const ENV = require('./environment');
 
 const tree = dirTree(
   ENV.currentPath,
-  { extensions: /\.(jpeg|jpg|png|svg|gif)$/ },
+  { 
+    extensions: /\.(jpeg|jpg|png|svg|gif)$/,
+    exclude: /build/
+  },
   (item, path) => {
-    // console.log(item);
+    console.log('tree', item);
   },
 );
 
@@ -24,6 +26,7 @@ function Main() {
     if (stat === 'directory' && filename === 'build') {
       return false;
     }
+    // console.log('filepath', filepath);
     return true;
   }, function(err){
     console.log('error', err);
@@ -64,6 +67,6 @@ function Main() {
   });
 }
 
-Main();
+// Main();
 
 module.exports = Main;

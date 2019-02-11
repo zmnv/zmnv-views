@@ -1,15 +1,18 @@
-function ImageCard(pathName) {
-    const imgTag = `<img src="${pathName}" class="vg-imageCard__image" />\n`;
-    const aTag = innerElement => `<a target="_blank" href="${pathName}" class="vg-imageCard__link">${innerElement}</a>`;
+const ENV = require('../../environment');
 
-    const fileName = pathName.split('/');
+function ImageCard(fileName) {
+    const imgFolder = 'images';
+    const imgTag = `<img src="${imgFolder}/${fileName}" class="vg-imageCard__image" />\n`;
+    const aTag = innerElement => `<a target="_blank" href="${imgFolder}/${fileName}" class="vg-imageCard__link">${innerElement}</a>`;
+
+    // const fileName = pathName.split('/');
     // const tempId = fileName[fileName.length-1];
     const tempId = Math.random().toString(32).substr(2);
 
     const checkBoxesFileName = `
               <label class="control control-checkbox">
                 <input type="checkbox" data-tempid="${tempId}" />
-                ${fileName[fileName.length-1]}
+                ${fileName}
                 <div class="control_indicator"></div>
               </label>
     `
@@ -20,7 +23,7 @@ function ImageCard(pathName) {
 
               ${process.env.LAYOUT && 
                 process.env.LAYOUT === 'CHECKS' ? 
-                checkBoxesFileName : '<div class="mar-b-8">'+fileName[fileName.length-1]+'</div>' }
+                checkBoxesFileName : '<div class="mar-b-8">'+fileName+'</div>' }
           
               ${aTag(imgTag)}
             </div>
@@ -36,7 +39,9 @@ let template = '';
 function Template(inputArray) {
   inputArray.forEach(element => {
     if (element['type'] !== 'directory') {
-      template += ImageCard(element['path']);
+      // console.log('FILE ' + element['path']);
+      const publicPathFile = element['path'].split(`${ENV.currentPath}/`);
+      template += ImageCard(publicPathFile[1]);
     } else {
       // console.log('DIRECTORY ' + element['name']);
       // template += `<div class="vg-container__inside">\n`;
