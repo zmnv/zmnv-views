@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const folders = {
     build: path.join(__dirname, '../../build'),
-    images: path.join(__dirname, '../../build/images'),
+    buildImages: path.join(__dirname, '../../build/images'),
 }
 
 function createDirectories() {
@@ -12,9 +12,9 @@ function createDirectories() {
       fs.mkdirSync(folders.build);
     }
     
-    const isImagesFolderExist = fs.existsSync(folders.images);
+    const isImagesFolderExist = fs.existsSync(folders.buildImages);
     if (!isImagesFolderExist) {
-      fs.mkdirSync(folders.images);
+      fs.mkdirSync(folders.buildImages);
     }
 }
 
