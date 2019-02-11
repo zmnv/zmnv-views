@@ -10,7 +10,7 @@ const tree = dirTree(
   './images',
   { extensions: /\.(jpeg|jpg|png|svg|gif)$/ },
   (item, path) => {
-    console.log(item);
+    // console.log(item);
   },
 );
 
