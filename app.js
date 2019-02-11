@@ -2,22 +2,19 @@ const dirTree = require('directory-tree');
 const fs = require('fs');
 const copydir = require('copy-dir');
 
-const createDirectory = require('./src/js-helpers/createDirectory');
+const createDirectories = require('./src/js-helpers/createDirectories');
 
-const ViewsHeader = require('./src/views/header');
-const ViewsFooter = require('./src/views/footer');
-const ViewsPolls = require('./src/views/polls');
-const Template = require('./src/views/index');
+const { ViewsHeader, ViewsFooter, ViewsPolls, Template } = require('./src/views');
 
 const tree = dirTree(
   './images',
   { extensions: /\.(jpeg|jpg|png|svg|gif)$/ },
   (item, path) => {
-    // console.log(item);
+    console.log(item);
   },
 );
 
-createDirectory();
+createDirectories();
 
 const stream = fs.createWriteStream('build/index.html');
 stream.once('open', function(fd) {

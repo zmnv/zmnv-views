@@ -6,7 +6,7 @@ const folders = {
     images: path.join(__dirname, '../../build/images'),
 }
 
-function createDirectory() {
+function createDirectories() {
     const isBuildFolderExist = fs.existsSync(folders.build);
     if (!isBuildFolderExist) {
       fs.mkdirSync(folders.build);
@@ -18,4 +18,4 @@ function createDirectory() {
     }
 }
 
-module.exports = createDirectory;
+module.exports = createDirectories;
