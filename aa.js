@@ -1,3 +1,5 @@
+/* я не помню зачем этот файл здесь, но особо не юзается */
+
 function updateQueryStringParam(key, value) {
     baseUrl = [location.protocol, '//', location.host, location.pathname].join('');
     urlQueryString = document.location.search;
