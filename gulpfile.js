@@ -5,6 +5,9 @@ const sass = require('gulp-sass');
 const exec = require('child_process').exec;
 const browserSync = require('browser-sync');
 const clean = require('gulp-clean');
+const rename = require('gulp-rename');
+
+const ENV = require('./environment');
 
 gulp.task('browser-sync', function() {
     // var port = process.env.PORT || 3000;
@@ -22,7 +25,8 @@ gulp.task('sass', function () {
         outputStyle: 'compressed',
         includePaths: ['node_modules']
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./build'));
+    .pipe(rename(ENV.styleName))
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('nodemon', function (cb) {

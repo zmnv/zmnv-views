@@ -1,3 +1,4 @@
 module.exports = {
-    currentPath: process.cwd()
+    currentPath: process.cwd(),
+    styleName: 'style-initial.css'
 };
