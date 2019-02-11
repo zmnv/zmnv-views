@@ -18,8 +18,8 @@ function ImageCard(pathName) {
         <div class="col-12 col-sm-4 col-lg-3 mar-b-48">
             <div class="vg-imageCard" data-tempid="${tempId}">
 
-              ${!process.env.LAYOUT && 
-                process.env.LAYOUT !== 'CLEAR' ? 
+              ${process.env.LAYOUT && 
+                process.env.LAYOUT === 'CHECKS' ? 
                 checkBoxesFileName : '<div class="mar-b-8">'+fileName[fileName.length-1]+'</div>' }
           
               ${aTag(imgTag)}

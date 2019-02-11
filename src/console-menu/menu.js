@@ -5,10 +5,10 @@ const titleHeader = '\n\x1b[91m◈\x1b[0m\x1b[92m◈\x1b[0m\x1b[94m◈\x1b[0m Ga
 console.log(titleHeader);
 
 menu([
-    { hotkey: '1', title: 'npm run dev      Developer Mode' },
-    { hotkey: '2', title: 'npm run build    Just build gallery' },
-    { hotkey: '3', title: 'npm run prod     Production gallery', selected: true },
-    { hotkey: '4', title: 'npm run prod:clear  Just Images' },
+    { hotkey: '1', title: 'npm run dev            Developer Mode' },
+    { hotkey: '2', title: 'npm run build          Just build clean gallery' },
+    { hotkey: '3', title: 'npm run prod           Build & Serve clean gallery', selected: true },
+    { hotkey: '4', title: 'npm run prod:checks    Build & Serve images with checkboxes' },
     { separator: true },
     { hotkey: '5', title: 'Clean...', cascade: true },
     { hotkey: '?', title: 'Help' },
@@ -31,7 +31,7 @@ menu([
         // console.log('You chose: ' + JSON.stringify(item));
         if(item.hotkey === '1') execDevelopment();
         if(item.hotkey === '2') execBuild();
-        if(item.hotkey === '3') execProduction();
+        if(item.hotkey === '3') execProduction(false);
         if(item.hotkey === '4') execProduction(true);
         if(item.hotkey === 'a') execCleanAll();
         if(item.hotkey === 'b') execCleanBuild();
@@ -41,12 +41,16 @@ menu([
     }
 });
 
-function execProduction(isClear = false) {
-    const commands = ['npm run prod', 'cross-env LAYOUT=CLEAR npm run prod'];
-    const doProduction = isClear ? exec(commands[0]) : exec(commands[1]);
+function execProduction(isPolls) {
+    const commands = ['npm run prod:checks', 'npm run prod'];
+    const doProduction = isPolls ? exec(commands[0]) : exec(commands[1]);
 
     doProduction.stdout.on('data', function(data) {
         console.log(data); 
+    });
+
+    doProduction.stdout.on('error', function(error) {
+        console.log(error); 
     });
 }
 

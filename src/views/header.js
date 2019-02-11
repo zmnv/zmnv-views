@@ -10,7 +10,7 @@ const buttonsMenu = () => {
             <button class="vg-button vg-button_danger" onClick="clearAll()">Сбросить</button>
         </div>
     `;
-    return !process.env.LAYOUT && process.env.LAYOUT !== 'CLEAR' ? view : '';
+    return process.env.LAYOUT && process.env.LAYOUT === 'CHECKS' ? view : '';
 }
 
 function ViewsHeader(title, css) {
