@@ -2,7 +2,7 @@
 
 ## How it works
 
-It «converts» file structure with images to simple HTML page with styles.
+It converts "file structure" with images to simple HTML page.
 
 <img src="https://i.imgur.com/ypa67lU.gif" />
 

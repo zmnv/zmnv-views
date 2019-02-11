@@ -1,6 +1,6 @@
 {
   "name": "zmnv-gg",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Gallery preview generator. Convert file structure with images to simple HTML page with thumbnails.",
   "main": "app.js",
   "scripts": {
