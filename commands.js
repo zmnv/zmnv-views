@@ -5,7 +5,7 @@ const clear = require('clear');
 const PACKAGE = require('./package.json');
 const StartServer = require('./server');
 
-// const AdauruLogo = require('./tools/ad-logo');
+const CheckUpdates = require('./src/applications/check-update');
 const ENV = require('./environment');
 const Main = require('./app');
 
@@ -17,24 +17,28 @@ program
     .description('Show version with logo.')
     .alias('v')
     .action(() => {
+        CheckUpdates();
         console.log('version', ENV.currentPath);
     });
 
 program
-    .command('test')
-    .description('Test programm')
-    .alias('t')
+    .command('build')
+    .description('Build simple gallery')
+    .alias('b')
     .action(() => {
         clear();
+        CheckUpdates();
+        // process.env.LAYOUT = 'CHECKS';
         Main();
     });
 
 program
     .command('serve')
-    .description('Serve programm')
+    .description('Serve build')
     .alias('s')
     .action(() => {
         clear();
+        CheckUpdates();
         StartServer();
     });
 
