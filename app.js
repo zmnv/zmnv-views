@@ -14,7 +14,7 @@ const tree = dirTree(
     exclude: /build/
   },
   (item, path) => {
-    console.log('tree', item);
+    // console.log('tree', item);
   },
 );
 
