@@ -1,6 +1,7 @@
 const { get } = require('https');
+const path = require('path');
 
-const { version } = require('../../package.json');
+const { version } = require(path.resolve(__dirname, '../../package.json'));
 const cs = require('../js-helpers/zmnv-colorizer');
 
 const updateMessageCommand = `${cs('Run', 93)} ${cs('npm i -g zmnv-views', 92, 1)} ${cs('to update!', 93)}`;

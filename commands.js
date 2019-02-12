@@ -18,7 +18,7 @@ program
     .alias('v')
     .action(() => {
         CheckUpdates();
-        console.log('version', ENV.currentPath);
+        console.log('version', PACKAGE.version);
     });
 
 program
