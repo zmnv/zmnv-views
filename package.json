@@ -1,7 +1,7 @@
 {
-  "name": "zmnv-gg",
+  "name": "zmnv-views",
   "version": "1.4.8",
-  "description": "Gallery preview generator. Converts file structure with images to simple HTML page with thumbnails.",
+  "description": "Simple html gallery generator. It takes image files in current directory and return simple html page with that images.",
   "preferGlobal": true,
   "main": "app.js",
   "bin": {
@@ -17,8 +17,12 @@
     "prod:checks": "cross-env LAYOUT=CHECKS npm run prod",
     "clean": "gulp clean"
   },
-  "author": "Valeriy Zimnev",
-  "license": "ISC",
+  "author": "Valeriy Zimnev (https://github.com/zmnv)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zmnv/zmnv-views"
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.19.0",
@@ -39,7 +43,6 @@
     "gulp-sass": "^4.0.2",
     "ip": "^1.1.5",
     "keypress": "^0.2.1",
-    "node-sass": "^4.11.0",
     "opn": "^5.4.0",
     "readline": "^1.3.0"
   }
