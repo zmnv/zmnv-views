@@ -1,10 +1,14 @@
-# Simple HTML Gallery generator
+<p>
+    <img src="https://777999.au.ru/zmnv/zmnv-views.svg">
+</p>
+
+# zmnv-views
+
+Генератор простой галереи на html.
+
+
 
 # Waiting for updates.
-
-<p align="center">
-    <img src="https://camo.githubusercontent.com/55d889142beb6083d109241e30335aeb23a6aadb/68747470733a2f2f3737373939392e61752e72752f7a6d6e762f6164617572752d636c692f686f776974776f726b735f736368656d652e706e67">
-</p>
 
 ## How it works
 

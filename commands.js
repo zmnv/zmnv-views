@@ -9,8 +9,13 @@ const CheckUpdates = require('./src/applications/check-update');
 const ENV = require('./environment');
 const Main = require('./app');
 
+const { LogoStart, LogoServer } = require('./src/js-helpers/logo');
+
 program
-    .version(PACKAGE.version, '-v, --version');
+    .version(PACKAGE.version, '-v, --version')
+    .option('-t, --title [text]', 'Add title into resentation page header')
+    .option('-p, --port [8080]', 'Set custom static server port')
+    .parse(process.argv);
 
 program
     .command('version')
@@ -27,9 +32,10 @@ program
     .alias('b')
     .action(() => {
         clear();
+        console.log(LogoStart());
+        Main(program.title);
+        console.log('after main?');
         CheckUpdates();
-        // process.env.LAYOUT = 'CHECKS';
-        Main();
     });
 
 program
@@ -38,8 +44,9 @@ program
     .alias('s')
     .action(() => {
         clear();
+
+        StartServer(program.port);
         CheckUpdates();
-        StartServer();
     });
 
 program
