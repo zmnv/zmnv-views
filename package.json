@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node ./src/console-menu/menu.js",
     "dev": "gulp",
+    "dev:update": "npm i -g /Users/zmnv/ZMNV/dev/zmnv-views-generator",
     "dev:checks": "cross-env LAYOUT=CHECKS npm run dev",
     "build": "node app.js && gulp sass",
     "serve": "node server.js",

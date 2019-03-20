@@ -11,20 +11,21 @@ const ENV = require('./environment');
 
 const filesValidate = /\.(jpeg|jpg|png|svg|gif)$/;
 
-const tree = dirTree(
-  ENV.currentPath,
-  { 
-    extensions: filesValidate,
-    exclude: /build/
-  },
-  (item, path) => {
-    // console.log('tree', item);
-  },
-);
 
 function Main(pageTitle = '') {
 
   createDirectories();
+
+  const tree = dirTree(
+    ENV.currentPath,
+    { 
+      extensions: filesValidate,
+      exclude: /build/
+    },
+    (item, path) => {
+      console.log('tree', item);
+    },
+  );
 
   copydir.sync(ENV.currentPath, `${ENV.currentPath}/build/images`, (stat, filepath, filename) => {
     if (stat === 'directory' && filename === 'build') {
