@@ -23,13 +23,13 @@ function Main(pageTitle = '') {
       exclude: /build/
     },
     (item, path) => {
-      console.log('tree', item);
+      // console.log('tree', item);
     },
   );
 
   copydir.sync(ENV.currentPath, `${ENV.currentPath}/build/images`, (stat, filepath, filename) => {
-    if (stat === 'directory' && filename === 'build') {
-      return false;
+    if (stat === 'directory') {
+      return filename === 'build' ? false : true;
     } else {
       const ext = path.extname(filename);
 

@@ -9,7 +9,7 @@ const CheckUpdates = require('./src/applications/check-update');
 const ENV = require('./environment');
 const Main = require('./app');
 
-const { LogoStart, LogoServer } = require('./src/js-helpers/logo');
+const { LogoStart, LogoServer, LogoAfterAll } = require('./src/js-helpers/logo');
 
 program
     .version(PACKAGE.version, '-v, --version')
@@ -34,7 +34,7 @@ program
         clear();
         console.log(LogoStart());
         Main(program.title);
-        console.log('after main?');
+        console.log(LogoAfterAll());
         CheckUpdates();
     });
 
@@ -46,7 +46,7 @@ program
         clear();
 
         StartServer(program.port);
-        CheckUpdates();
+        // CheckUpdates();
     });
 
 program

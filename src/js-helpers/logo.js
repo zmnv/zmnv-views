@@ -18,7 +18,14 @@ ${chalk.magentaBright('  ██▄▄███████████▄  ')} $
 ${chalk.magentaBright('  ▀█████████████▀   ')} ${chalk.greenBright(ENV.currentPath)}
 `;
 
+const LogoAfterAll = () => `
+🏁 Завершено.
+👉 Переместите содержимое папки ${chalk.bold('/build')} на сервер,
+   либо создайте свой ${chalk.cyanBright.bold('zmnv-views serve')}\
+`
+
 module.exports = {
     LogoServer,
-    LogoStart
+    LogoStart,
+    LogoAfterAll
 }
