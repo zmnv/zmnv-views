@@ -16,7 +16,7 @@ function StartServer(PORT = address.port) {
     app.use('/', express.static(ENV.currentPath + '/build')); // ← adjust
 
     app.listen(PORT, address.ip, function () {
-        console.log(chalk.gray('Press CTRL+C to exit...'));
+        // console.log(chalk.gray('Закройте окно чтобы выключить сервер...'));
         
         setTimeout(() => {
             opn(hostname);
