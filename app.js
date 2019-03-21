@@ -5,9 +5,11 @@ const path = require('path');
 const chalk = require('chalk');
 
 const createDirectories = require('./src/js-helpers/createDirectories');
+const { dictionary } = require('./src/js-helpers/polyglot');
 
 const { ViewsHeader, ViewsFooter, ViewsPolls, Template } = require('./src/views');
 const ENV = require('./environment');
+
 
 const filesValidate = /\.(jpeg|jpg|png|svg|gif)$/;
 
@@ -34,12 +36,12 @@ function Main(pageTitle = '') {
       const ext = path.extname(filename);
 
       if(filesValidate.test(ext)) {
-        console.log(`${chalk.greenBright('  ✔')} ${chalk.greenBright(filename)} скопирован в папку /build`);
+        console.log(`${chalk.greenBright('  ✔')} ${chalk.greenBright(filename)} ${dictionary.BUILDER_FILE_COPYED[ENV.locale]} /build`);
         return true;
       } else return false;
     }
   }, function(err){
-    console.log(chalk.redBright('  Ошибка копирования файлов:'), err);
+    console.log(chalk.redBright('  ' + dictionary.BUILDER_FILE_COPY_ERROR[ENV.locale]), err);
   });
 
   const styleFile = fs.readFileSync(`${__dirname}/public/${ENV.styleName}`, 'utf8');

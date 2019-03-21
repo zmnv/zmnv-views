@@ -1,4 +1,4 @@
-'use strict';
+// Не используется
 
 const readline = require('readline');
 

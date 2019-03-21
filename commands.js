@@ -15,6 +15,7 @@ program
     .version(PACKAGE.version, '-v, --version')
     .option('-t, --title [text]', 'Add title into resentation page header')
     .option('-p, --port [8080]', 'Set custom static server port')
+    // .option('-l, --lang [ru_RU]', 'Set language of this command line interface. Values: ru_RU, en_US.')
     .parse(process.argv);
 
 program
@@ -26,6 +27,8 @@ program
         console.log('version', PACKAGE.version);
     });
 
+
+let lang = '';
 program
     .command('build')
     .description('Build simple gallery')
@@ -33,7 +36,9 @@ program
     .action(() => {
         clear();
         console.log(LogoStart());
+
         Main(program.title);
+
         console.log(LogoAfterAll());
         CheckUpdates();
     });
