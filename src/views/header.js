@@ -4,7 +4,7 @@ const fs = require('fs');
 const currentDate = require('../js-helpers/currentDate');
 
 const buttonsMenu = () => {
-    const view = `
+    const view = /*html*/`
         <div class="vg-toolbar">
             <button class="vg-button vg-button__copy-to-clipboard" data-clipboard-text="Вы пытались скопировать, но не вышло...">Скопировать ссылку</button>
             <button class="vg-button vg-button_danger" onClick="clearAll()">Сбросить</button>
@@ -16,7 +16,7 @@ const buttonsMenu = () => {
 function ViewsHeader(title, css) {
     const pageTitle = '';
 
-    return `
+    return /*html*/`
 <!DOCTYPE html>
 <html lang="ru" >
     <head>

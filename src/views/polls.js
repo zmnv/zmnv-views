@@ -1,4 +1,4 @@
-const ViewsPolls = `
+const ViewsPolls = /*html*/`
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     

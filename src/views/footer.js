@@ -1,4 +1,4 @@
-const ViewsFooter = `
+const ViewsFooter = /*html*/`
 </body>
 </html>
 `
