@@ -1,5 +1,6 @@
 const { get } = require('https');
 const path = require('path');
+const semver = require('semver');
 
 const { version } = require(path.resolve(__dirname, '../../package.json'));
 const cs = require('../js-helpers/zmnv-colorizer');
@@ -19,9 +20,9 @@ const CheckUpdates = function () {
 
         response.on('data', chunk => {
             const res = JSON.parse(chunk.toString());
-            const isVersionsEqual = res.version === version;
 
-            if(!isVersionsEqual) console.log(updateMessage(res.version, version));
+            const isVersionOld = semver.lt(version, res.version);
+            if(isVersionOld) console.log(updateMessage(res.version, version));
         });
 
         response.on('error', () => {});
