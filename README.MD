@@ -4,37 +4,69 @@
 
 # zmnv-views
 
-Генератор простой галереи на html.
+Генератор простой галереи на html из обычных картинок и папок.
 
 
+### Особенности
 
-# Waiting for updates.
-
-## How it works
-
-It converts "file structure" with images (jpeg | jpg | png | svg | gif) to simple HTML page.
-
-<img src="https://i.imgur.com/ypa67lU.gif" />
+* Название папки = текст заголовка для группы фотографий внутри неё.
+* Допустима любая вложенность, в разумных пределах.
+* Формат используемых файлов: `jpeg | jpg | png | svg | gif`
 
 
-## How to use
+## Установка
 
-1. Install global package:
+Данная реализация представляет из себя командный интерфейс для терминала (cli) и устанавливается глобально с помоью менеджера пакетов `npm` в среде [Node JS.](https://nodejs.org/)
+
+> Почитать: [Что такое Node JS?](https://www.google.com/search?q=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&oq=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&aqs=chrome..69i57j0l5.2745j0j7&sourceid=chrome&ie=UTF-8)
+
+
+Установить zmnv-views:
+
 ```
 npm i -g zmnv-views
 ```
 
-2. Open folder with images in terminal/cmd and run:
+если будет ругаться на права доступа, запустите с правами администратора, или:
+
+```
+sudo npm i -g zmnv-views
+```
+
+## Как этим пользоваться?
+
+1. Подготовьте папку с изображениями, которые хотите «склеить» одностраничную галерею.
+
+2. Откройте терминал по адресу этой папки [(как это сделать?).](https://www.google.com/search?q=%D0%BA%D0%B0%D0%BA+%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C+%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB+%D0%B2+%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5&oq=%D0%BA%D0%B0%D0%BA+%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C+%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB+%D0%B2+%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5&aqs=chrome..69i57j0l4.4240j0j7&sourceid=chrome&ie=UTF-8)  
+
+
+### Сгенерировать галерею из файлов и папок текущей директории:
+
 ```
 zmnv-views build
 ```  
-It creates `/build` folder with simple html.
 
-3. You can use express server to serve `/build` folder:
+После этого в текущей директории вы сможете найти папку `build` следующей структуры:
+
+```
+[build]
+-- [images]              Папка с вашими изображениями
+-- index.html           Страница с вёрсткой галереи
+-- style-initial.css    Стили, задающие оформление галереи
+```
+
+### Разместить галерею в общем доступе
+
+Поделиться своим творчеством с другими можно 2 способами:
+
+1. Скопировать содержимое папки `build` на любой [сервер статики.](https://ru.wikipedia.org/wiki/Nginx)
+2. Запустить свой локальный сервер внутри сети. Введите:
+
+
 ```
 zmnv-views serve
 ```
 
-## Related Project
+# Другие похожие проекты
 
-* [adauru-cli](https://github.com/zmnv/adauru-cli)
+* [adauru-cli](https://github.com/zmnv/adauru-cli) — собери ассеты от Google Web Designer и т.д. в 1 html файл.
