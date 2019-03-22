@@ -11,10 +11,13 @@ const Main = require('./app');
 
 const { LogoStart, LogoServer, LogoAfterAll } = require('./src/js-helpers/logo');
 
+const askUserInputString = require('./src/js-helpers/askUserInputString');
+
 program
     .version(PACKAGE.version, '-v, --version')
     .option('-t, --title [text]', 'Add title into resentation page header')
     .option('-p, --port [8080]', 'Set custom static server port')
+    .option('-d, --deploy [folderName]', 'Deploy files into path by process.env.ZMNV_VIEWS_DEPLOY')
     // .option('-l, --lang [ru_RU]', 'Set language of this command line interface. Values: ru_RU, en_US.')
     .parse(process.argv);
 
@@ -37,10 +40,20 @@ program
         clear();
         console.log(LogoStart());
 
-        Main(program.title);
+        askUserInputString('  Введите название папки: ').then(answer => {
+            const slug = answer || 'noslug';
+            const deployEnvPath = `${process.env.ZMNV_VIEWS_DEPLOY}/${process.env.ZMNV_VIEWS_USERPATH}`;
+            const deployPath = (typeof program.deploy === 'string') ? program.deploy : deployEnvPath;
+            const deploy = deployPath && `${deployPath}/${slug}`;
 
-        console.log(LogoAfterAll());
-        CheckUpdates();
+            if(answer) console.log(`  > Создана папка: ${deployPath && deployPath}/${answer}\n`);
+
+            Main(program.title, program.deploy && deploy);
+            console.log(LogoAfterAll());
+
+            CheckUpdates();
+        })
+
     });
 
 program
