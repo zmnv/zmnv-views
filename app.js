@@ -33,7 +33,7 @@ function Main(pageTitle = '') {
     if (stat === 'directory') {
       return filename === 'build' ? false : true;
     } else {
-      const ext = path.extname(filename);
+      const ext = path.extname(filename).toLowerCase();
 
       if(filesValidate.test(ext)) {
         console.log(`${chalk.greenBright('  ✔')} ${chalk.greenBright(filename)} ${dictionary.BUILDER_FILE_COPYED[ENV.locale]} /build`);
