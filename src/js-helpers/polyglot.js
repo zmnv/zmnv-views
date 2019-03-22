@@ -22,6 +22,10 @@ const dictionary = {
      либо создайте свой ${chalk.cyanBright.bold('zmnv-views serve')}`,
         en_US: `Just copy files inside ${chalk.bold('/build')} to your static server
      or serve yours by ${chalk.cyanBright.bold('zmnv-views serve')}`
+    },
+    SERVER_CLOSE_HINT: {
+        ru_RU: 'Нажмите CTRL+C, чтобы остановить сервер...',
+        en_US: 'Press CTRL+C to exit...'
     }
 }
 
