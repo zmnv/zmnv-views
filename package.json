@@ -1,6 +1,6 @@
 {
   "name": "zmnv-views",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "Simple html gallery generator. It takes image files in current directory and return simple html page with that images.",
   "preferGlobal": true,
   "main": "app.js",
