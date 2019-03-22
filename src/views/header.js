@@ -14,13 +14,12 @@ const buttonsMenu = () => {
 }
 
 function ViewsHeader(title, css) {
-    const pageTitle = '';
 
     return /*html*/`
 <!DOCTYPE html>
 <html lang="ru" >
     <head>
-        <title>${currentDate(true)} – ${title || pageTitle}</title>
+        <title>${title && title +' - '}${currentDate(true)}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="${css}" rel="stylesheet" />
@@ -29,7 +28,7 @@ function ViewsHeader(title, css) {
         ${buttonsMenu()}
         <div class="vg-header container-width-max pad-t-64 mar-b-48">
             <div id="target" class="vg-header__dateModify">${currentDate(true)}</div>
-            <h1 class="vg-header__title">${title || pageTitle}</h1>
+            <h1 class="vg-header__title">${title}</h1>
             <div class="vg-header__dateModify">↓</div>
         </div>
 `;
