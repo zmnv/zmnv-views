@@ -4,11 +4,11 @@ const ENV = require('../../environment');
 const { dictionary } = require('./polyglot');
 
 const LogoServer = (hostname = 'http://localhost:8080') => `
-${chalk.blueBright('    ▄▄▄  ▄▄██████▀    ')} ${chalk.blueBright('ZMNV VIEWS STATIC SERVER')}
-${chalk.blueBright('   ▀▀██ ███████▀▀     ')} ${chalk.blueBright(PACKAGE.version)}
-${chalk.blueBright('   ▄█▀ ███████▀       ')} ${chalk.gray('')}
-${chalk.blueBright('  ██▄▄███████████▄    ')} ${chalk.cyanBright(hostname)}
-${chalk.blueBright('  ▀█████████████▀     ')} ${chalk.greenBright('online')}
+${chalk.blueBright('    ▄▄▄  ▄▄██████▀  ')} ${chalk.blueBright('ZMNV VIEWS STATIC SERVER')}
+${chalk.blueBright('   ▀▀██ ███████▀▀   ')} ${chalk.blueBright(PACKAGE.version)}
+${chalk.blueBright('   ▄█▀ ███████▀     ')} ${chalk.gray('')}
+${chalk.blueBright('  ██▄▄███████████▄  ')} ${chalk.cyanBright(hostname)}
+${chalk.blueBright('  ▀█████████████▀   ')} ${chalk.greenBright('online')}
 `;
 
 const LogoStart = () => `
