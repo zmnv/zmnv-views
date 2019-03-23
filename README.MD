@@ -121,6 +121,14 @@ https://servername.domain.ru/zmnv/gallery/название
 ```
 
 　
+
+## Например
+　
+
+<p align="center">
+    <img src="https://777999.au.ru/zmnv/important/zmnv-views-example.gif">
+</p>
+　
 ## Ожидаемые улучшения
 
 **Галерея:**
