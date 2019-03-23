@@ -13,6 +13,10 @@
 * Допустима любая вложенность, в разумных пределах.
 * Формат используемых файлов: `jpeg | jpg | png | svg | gif`
 
+<p>
+    <img src="https://777999.au.ru/zmnv/important/zmnv-views-picture.png">
+</p>
+
 
 ## Установка
 

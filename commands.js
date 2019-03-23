@@ -6,11 +6,10 @@ const PACKAGE = require('./package.json');
 const StartServer = require('./server');
 
 const CheckUpdates = require('./src/applications/check-update');
-const ENV = require('./environment');
+// const ENV = require('./environment');
 const Main = require('./app');
 
-const { LogoStart, LogoServer, LogoAfterAll } = require('./src/js-helpers/logo');
-
+const { LogoStart, LogoAfterAll } = require('./src/js-helpers/logo');
 const askUserInputString = require('./src/js-helpers/askUserInputString');
 const { transliterate } = require('./src/js-helpers/transliterate');
 
@@ -20,7 +19,7 @@ const fs = require('fs');
 
 program
     .version(PACKAGE.version, '-v, --version')
-    .option('-t, --title [text]', 'Add title into resentation page header')
+    .option('-t, --title [text]', 'Add title into gallery page header')
     .option('-p, --port [8080]', 'Set custom static server port')
     .option('-d, --deploy [path]', 'Deploy files into path. process.env.ZMNV_VIEWS_DEPLOY')
     .option('-o, --open', 'Open deployed gallery in browser')
@@ -36,6 +35,13 @@ program
         console.log('version', PACKAGE.version);
     });
 
+function checkDeployPath(deploy) {
+    if ((typeof deploy === 'boolean' && deploy) && !fs.existsSync(process.env.ZMNV_VIEWS_DEPLOY)) {
+        console.log(`Не могу достучаться до сервера [${process.env.ZMNV_VIEWS_DEPLOY}]\nПроверьте его доступность и попробуйте еще раз...\n`);
+        process.exit();
+    }
+}
+
 program
     .command('build')
     .description('Build simple gallery')
@@ -44,10 +50,7 @@ program
         clear();
         console.log(LogoStart());
 
-        if ((typeof program.deploy === 'boolean' && program.deploy) && !fs.existsSync(process.env.ZMNV_VIEWS_DEPLOY)) {
-            console.log(`Не могу достучаться до сервера [${process.env.ZMNV_VIEWS_DEPLOY}]\nПроверьте его доступность и попробуйте еще раз...\n`);
-            process.exit();
-        }
+        if(program.deploy) checkDeployPath(program.deploy);
 
         if(program.deploy) askUserInputString('Введите название: ').then(answer => {
             const slug = transliterate(answer).toLowerCase() || '_trash';
