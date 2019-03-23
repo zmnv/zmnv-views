@@ -37,11 +37,11 @@ function Main(
       const ext = path.extname(filename).toLowerCase();
 
       if(filesValidate.test(ext)) {
-        console.log(`${chalk.greenBright('  ✔')} ${chalk.greenBright(filename)} ${dictionary.BUILDER_FILE_COPYED[ENV.locale]} /build`);
+        console.log(`${chalk.greenBright('  ✔')} ${chalk.greenBright(filename)}`);
         return true;
       } else return false;
     }
-  }, function(err){
+  }, function(err) {
     console.log(chalk.redBright('  ' + dictionary.BUILDER_FILE_COPY_ERROR[ENV.locale]), err);
   });
 

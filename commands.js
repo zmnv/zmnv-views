@@ -12,12 +12,18 @@ const Main = require('./app');
 const { LogoStart, LogoServer, LogoAfterAll } = require('./src/js-helpers/logo');
 
 const askUserInputString = require('./src/js-helpers/askUserInputString');
+const { transliterate } = require('./src/js-helpers/transliterate');
+
+const ncp = require("copy-paste");
+const opn = require('opn');
+const fs = require('fs');
 
 program
     .version(PACKAGE.version, '-v, --version')
     .option('-t, --title [text]', 'Add title into resentation page header')
     .option('-p, --port [8080]', 'Set custom static server port')
-    .option('-d, --deploy [folderName]', 'Deploy files into path by process.env.ZMNV_VIEWS_DEPLOY')
+    .option('-d, --deploy [path]', 'Deploy files into path. process.env.ZMNV_VIEWS_DEPLOY')
+    .option('-o, --open', 'Open deployed gallery in browser')
     // .option('-l, --lang [ru_RU]', 'Set language of this command line interface. Values: ru_RU, en_US.')
     .parse(process.argv);
 
@@ -30,8 +36,6 @@ program
         console.log('version', PACKAGE.version);
     });
 
-
-let lang = '';
 program
     .command('build')
     .description('Build simple gallery')
@@ -40,19 +44,41 @@ program
         clear();
         console.log(LogoStart());
 
-        askUserInputString('  Введите название папки: ').then(answer => {
-            const slug = answer || 'noslug';
-            const deployEnvPath = `${process.env.ZMNV_VIEWS_DEPLOY}/${process.env.ZMNV_VIEWS_USERPATH}`;
+        if ((typeof program.deploy === 'boolean' && program.deploy) && !fs.existsSync(process.env.ZMNV_VIEWS_DEPLOY)) {
+            console.log(`Не могу достучаться до сервера [${process.env.ZMNV_VIEWS_DEPLOY}]\nПроверьте его доступность и попробуйте еще раз...\n`);
+            process.exit();
+        }
+
+        if(program.deploy) askUserInputString('Введите название: ').then(answer => {
+            const slug = transliterate(answer).toLowerCase() || '_trash';
+            const deployEnvPath = program.deploy && `${process.env.ZMNV_VIEWS_DEPLOY}${process.env.ZMNV_VIEWS_USERPATH}`;
             const deployPath = (typeof program.deploy === 'string') ? program.deploy : deployEnvPath;
             const deploy = deployPath && `${deployPath}/${slug}`;
 
-            if(answer) console.log(`  > Создана папка: ${deployPath && deployPath}/${answer}\n`);
+            console.log(`\n📁 Создана папка:\n${deployPath && deployPath}/${slug}\n`);
 
-            Main(program.title, program.deploy && deploy);
+            Main(program.title || program.deploy && answer, program.deploy && deploy);
+
+            const url = `${process.env.ZMNV_VIEWS_HOSTNAME}${process.env.ZMNV_VIEWS_USERPATH}/${slug}`;
+            console.log(`\n🎆 Галерея опубликована:\n${url}\n...ссылка скопирована в буфер обмена.`);
+            console.log('');
+
+            ncp.copy(url);
+
+            setTimeout(() => {
+                if(program.open) opn(url);
+                process.exit();
+            }, 1000);
+        });
+        else {
+            console.log(`\n📁 Создана папка: /build`);
+            program.title && console.log(`✍🏻  Заголовок:     ${program.title}`);
+            console.log('');
+            Main(program.title);
             console.log(LogoAfterAll());
+        }
 
-            CheckUpdates();
-        })
+        CheckUpdates();
 
     });
 

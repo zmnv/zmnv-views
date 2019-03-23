@@ -19,9 +19,9 @@ const dictionary = {
     },
     BUILDER_COMPLETE_HINT: {
         ru_RU: `Переместите содержимое папки ${chalk.bold('/build')} на сервер,
-     либо создайте свой ${chalk.cyanBright.bold('zmnv-views serve')}`,
+  либо создайте свой — введите ${chalk.cyanBright.bold('zmnv-views serve')}`,
         en_US: `Just copy files inside ${chalk.bold('/build')} to your static server
-     or serve yours by ${chalk.cyanBright.bold('zmnv-views serve')}`
+  or serve yours by ${chalk.cyanBright.bold('zmnv-views serve')}`
     },
     SERVER_CLOSE_HINT: {
         ru_RU: 'Нажмите CTRL+C, чтобы остановить сервер...',

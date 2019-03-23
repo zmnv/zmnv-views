@@ -16,12 +16,12 @@ ${chalk.magentaBright('    ▄▄▄  ▄▄██████▀  ')} ${chalk.m
 ${chalk.magentaBright('   ▀▀██ ███████▀▀   ')} ${chalk.magentaBright(PACKAGE.version)}
 ${chalk.magentaBright('   ▄█▀ ███████▀     ')} 
 ${chalk.magentaBright('  ██▄▄███████████▄  ')} ${chalk.gray(dictionary.LOGO_TITLE_ACTION[ENV.locale] + ':')}
-${chalk.magentaBright('  ▀█████████████▀   ')} ${chalk.greenBright(ENV.currentPath)}
+${chalk.magentaBright('  ▀█████████████▀   ')} ${chalk.blueBright(ENV.currentPath)}
 `;
 
 const LogoAfterAll = () => `
-  🏁 ${dictionary.BUILDER_COMPLETE_FINISH[ENV.locale]}
-  👉 ${dictionary.BUILDER_COMPLETE_HINT[ENV.locale]}
+🏁 ${dictionary.BUILDER_COMPLETE_FINISH[ENV.locale]}
+👉 ${dictionary.BUILDER_COMPLETE_HINT[ENV.locale]}
 `
 
 module.exports = {
