@@ -20,7 +20,7 @@
 
 ## Установка
 
-Данная реализация представляет из себя командный интерфейс для терминала (cli) и устанавливается глобально с помощью менеджера пакетов `npm` в среде [Node JS.](https://nodejs.org/) Подробнее: [Что такое Node JS?](https://www.google.com/search?q=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&oq=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&aqs=chrome..69i57j0l5.2745j0j7&sourceid=chrome&ie=UTF-8)
+Данная программа представляет из себя командный интерфейс для терминала (cli) и устанавливается глобально с помощью менеджера пакетов `npm` в среде [Node JS.](https://nodejs.org/) Подробнее: [Что такое Node JS?](https://www.google.com/search?q=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&oq=%D1%87%D1%82%D0%BE+%D1%82%D0%B0%D0%BA%D0%BE%D0%B5+node+js&aqs=chrome..69i57j0l5.2745j0j7&sourceid=chrome&ie=UTF-8)
 
 
 Установить zmnv-views:
@@ -80,7 +80,7 @@ zmnv-views serve
 
 Допустим, у вас есть доступ к сетевой папке, которая используется еще и сервером статики.
 
-Определите переменные окружения:
+[Определите переменные](https://www.google.com/search?q=%D0%BA%D0%B0%D0%BA+%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F&oq=%D0%BA%D0%B0%D0%BA+%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C+%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F&aqs=chrome..69i57.4027j0j1&sourceid=chrome&ie=UTF-8) окружения:
 
 ```
 export ZMNV_VIEWS_DEPLOY=/Volumes/servername                Путь к сетевой папке
