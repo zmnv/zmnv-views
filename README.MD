@@ -35,6 +35,8 @@ npm i -g zmnv-views
 sudo npm i -g zmnv-views
 ```
 
+　
+
 ## Как этим пользоваться?
 
 1. Подготовьте папку с изображениями, которые хотите «склеить» в одностраничную галерею.
@@ -69,6 +71,8 @@ zmnv-views build
 zmnv-views serve
 ```
 
-# Другие похожие проекты
+　
+
+## Другие похожие проекты
 
 * [adauru-cli](https://github.com/zmnv/adauru-cli) — собери ассеты от Google Web Designer и т.д. в 1 html файл.
