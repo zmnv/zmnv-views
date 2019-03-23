@@ -6,12 +6,13 @@ const PACKAGE = require('./package.json');
 const StartServer = require('./server');
 
 const CheckUpdates = require('./src/applications/check-update');
-// const ENV = require('./environment');
+const ENV = require('./environment');
 const Main = require('./app');
 
 const { LogoStart, LogoAfterAll } = require('./src/js-helpers/logo');
 const askUserInputString = require('./src/js-helpers/askUserInputString');
 const { transliterate } = require('./src/js-helpers/transliterate');
+const { validateFolder } = require('./src/js-helpers/validateFolder');
 
 const ncp = require("copy-paste");
 const opn = require('opn');
@@ -49,6 +50,8 @@ program
     .action(() => {
         clear();
         console.log(LogoStart());
+
+        validateFolder(ENV.currentPath);
 
         if(program.deploy) checkDeployPath(program.deploy);
 

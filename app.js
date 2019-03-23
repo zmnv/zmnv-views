@@ -4,7 +4,6 @@ const copydir = require('copy-dir');
 const path = require('path');
 const chalk = require('chalk');
 
-const createDirectories = require('./src/js-helpers/createDirectories');
 const { dictionary } = require('./src/js-helpers/polyglot');
 
 const { ViewsHeader, ViewsFooter, ViewsPolls, Template } = require('./src/views');
