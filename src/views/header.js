@@ -15,13 +15,19 @@ const buttonsMenu = () => {
 
 function ViewsHeader(title, css) {
 
+    const fullTitle = `${title && title +' - '}${currentDate(true)}`;
+
     return /*html*/`
 <!DOCTYPE html>
 <html lang="ru" >
     <head>
-        <title>${title && title +' - '}${currentDate(true)}</title>
+        <title>${fullTitle}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="${fullTitle}">
+        <meta property="twitter:card" content="summary">
+        <meta property="twitter:title" content="${fullTitle}">
         <link href="${css}" rel="stylesheet" />
     </head>
     <body>
