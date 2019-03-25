@@ -8,6 +8,7 @@ const { dictionary } = require('./src/js-helpers/polyglot');
 
 const { ViewsHeader, ViewsFooter, ViewsPolls, Template } = require('./src/views');
 const ENV = require('./environment');
+const createDirectories = require('./src/js-helpers/createDirectories');
 
 const filesValidate = /\.(jpeg|jpg|png|svg|gif)$/;
 
