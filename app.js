@@ -16,7 +16,7 @@ function Main(
   renderToPath = `${ENV.currentPath}/build`
 ) {
 
-  // createDirectories();
+  createDirectories(renderToPath);
 
   const tree = dirTree(
     ENV.currentPath,

@@ -2,15 +2,11 @@
 
 const path = require('path');
 const fs = require('fs');
-const ENV = require('../../environment');
 
-const Confirm = require('prompt-confirm');
-const prompt = new Confirm('Do you like chocolate?');
-
-const folders = {
-    build: path.join(ENV.currentPath, './build'),
-    buildImages: path.join(ENV.currentPath, './build/images'),
-}
+// const folders = {
+//     build: path.join(ENV.currentPath, './build'),
+//     buildImages: path.join(ENV.currentPath, './build/images'),
+// }
 
 function deleteFolderRecursive(path) {
     if (fs.existsSync(path)) {
@@ -26,15 +22,15 @@ function deleteFolderRecursive(path) {
     }
 };
 
-function createDirectories() {
-    const isBuildFolderExist = fs.existsSync(folders.build);
+function createDirectories(folderPath) {
+    const isBuildFolderExist = fs.existsSync(folderPath);
 
-    if (isBuildFolderExist) deleteFolderRecursive(folders.build);
-    fs.mkdirSync(folders.build);
+    if (isBuildFolderExist) deleteFolderRecursive(folderPath);
+    fs.mkdirSync(folderPath);
 
-    const isImagesFolderExist = fs.existsSync(folders.buildImages);
+    const isImagesFolderExist = fs.existsSync(`${folderPath}/images`);
     if (!isImagesFolderExist) {
-        fs.mkdirSync(folders.buildImages);
+        fs.mkdirSync(`${folderPath}/images`);
     }
 }
 
