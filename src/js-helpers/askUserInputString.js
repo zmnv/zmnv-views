@@ -4,7 +4,7 @@ function askUserInputString(question = 'no question?') {
     return new Promise(function(resolve, reject) {
       const rl = readline.createInterface({
         input: process.stdin,
-        // output: process.stdout,
+        output: process.stdout,
         terminal: true
       });
 
