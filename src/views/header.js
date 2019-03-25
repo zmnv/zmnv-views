@@ -13,21 +13,29 @@ const buttonsMenu = () => {
     return process.env.LAYOUT && process.env.LAYOUT === 'CHECKS' ? view : '';
 }
 
-function ViewsHeader(title, css) {
+function ViewsHeader(userTitle, css) {
 
-    const fullTitle = `${title && title +' - '}${currentDate(true)}`;
-
+    const currDate = currentDate(true);
+    const title = userTitle || '';
+    const fullTitle = `${userTitle} - ${currDate}`;
+    const userDescription = process.env.ZMNV_VIEWS_DESCRIPTION;
+    const description = userDescription ? `${userDescription} - ${currDate}` : currDate;
+    const og_image = process.env.ZMNV_VIEWS_PREVIEW || 'https://raw.githubusercontent.com/zmnv/zmnv-views/master/zmnv-views-preview.png';
     return /*html*/`
 <!DOCTYPE html>
 <html lang="ru" >
     <head>
         <title>${fullTitle}</title>
+        <meta name="description" content="${description}">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="${fullTitle}">
+        <meta property="og:title" content="${title}">
+        <meta property="og:description" content="${description}">
         <meta property="twitter:card" content="summary">
-        <meta property="twitter:title" content="${fullTitle}">
+        <meta property="twitter:title" content="${title}">
+        <meta property="og:image" content="${og_image}">
+        <meta property="og:image:type" content="image/png">
         <link href="${css}" rel="stylesheet" />
     </head>
     <body>
